@@ -1,11 +1,15 @@
 package com.example.calculator;
 
 import javafx.application.Application;
+import javafx.beans.property.ObjectProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -15,7 +19,9 @@ public class MainWindow extends Application {
         launch(args);
     }
 
+    String displayContent = "";
 
+    char operation = 'x';
 
     @Override
     public void start(Stage primaryStage) {
@@ -32,6 +38,8 @@ public class MainWindow extends Application {
         num7.setPrefSize(100,100);
         num7.setFont(new Font("Arial",40));
         group.getChildren().add(num7);
+
+
 
         Button num8 = new Button();
         num8.setText("8");
@@ -145,6 +153,7 @@ public class MainWindow extends Application {
         addition.setPrefSize(100,200);
         addition.setFont(new Font("Arial",40));
         group.getChildren().add(addition);
+
         Button substraction = new Button();
         substraction.setText("-");
         substraction.setTranslateX(300);
@@ -162,12 +171,199 @@ public class MainWindow extends Application {
         group.getChildren().add(equals);
 
         TextField display = new TextField();
-        display.setText("0");
+        display.setText("");
         display.setTranslateX(0);
         display.setTranslateY(0);
         display.setPrefSize(400,100);
         display.setFont(new Font("Arial",40));
         group.getChildren().add(display);
+
+        num1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "1";
+                display.setText(displayContent);
+
+            }
+        });
+        num2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "2";
+                display.setText(displayContent);
+
+            }
+        });
+        num3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "3";
+                display.setText(displayContent);
+
+            }
+        });
+        num4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "4";
+                display.setText(displayContent);
+
+            }
+        });
+        num5.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "5";
+                display.setText(displayContent);
+
+            }
+        });
+        num6.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "6";
+                display.setText(displayContent);
+
+            }
+        });
+
+        num7.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+            displayContent += "7";
+            display.setText(displayContent);
+
+            }
+        });
+        num8.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "8";
+                display.setText(displayContent);
+
+            }
+        });
+
+        num9.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "9";
+                display.setText(displayContent);
+
+            }
+        });
+        num0.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += "0";
+                display.setText(displayContent);
+
+            }
+        });
+
+        addition.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                Functions.number1 += Double.parseDouble(displayContent);
+                displayContent = "";
+                display.setText(displayContent);
+                operation = '+';
+
+            }
+        });
+
+        substraction.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                Functions.number1 += Double.parseDouble(displayContent);
+
+                displayContent = "";
+                display.setText(displayContent);
+                operation = '-';
+
+            }
+        });
+
+        multiplicate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                Functions.number1 += Double.parseDouble(displayContent);
+
+                displayContent = "";
+                display.setText(displayContent);
+                operation = '*';
+
+            }
+        });
+        divide.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                Functions.number1 += Double.parseDouble(displayContent);
+
+                displayContent = "";
+                display.setText(displayContent);
+                operation = '/';
+
+            }
+        });
+
+        delete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                Functions.number1 = 0;
+
+                displayContent = "";
+                display.setText(displayContent);
+                operation = 'x';
+
+            }
+        });
+        equals.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                switch (operation) {
+                    case '+':
+                        Functions.number1 += Double.parseDouble(displayContent);
+                        break;
+                    case '-':
+                        Functions.number1 -= Double.parseDouble(displayContent);
+                        break;
+                    case '*':
+                        Functions.number1 *= Double.parseDouble(displayContent);
+                        break;
+                    case '/':
+                        Functions.number1 /= Double.parseDouble(displayContent);
+                        break;
+
+                }
+
+
+
+
+                displayContent = String.valueOf(Functions.number1);
+                display.setText(displayContent);
+
+
+
+            }
+        });
+
 
 
         primaryStage.setScene(calculatorView);
