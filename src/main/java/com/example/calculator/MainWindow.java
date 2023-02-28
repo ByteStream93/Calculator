@@ -271,11 +271,22 @@ public class MainWindow extends Application {
             }
         });
 
+        comma.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                displayContent = display.getText();
+                displayContent += ".";
+                display.setText(displayContent);
+
+            }
+        });
+
         addition.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
 
                 Functions.number1 += Double.parseDouble(displayContent);
+
                 displayContent = "";
                 display.setText(displayContent);
                 operation = '+';
@@ -350,13 +361,17 @@ public class MainWindow extends Application {
                     case '/':
                         Functions.number1 /= Double.parseDouble(displayContent);
                         break;
+                    case 'x':
+                        Functions.number2 = Double.parseDouble(displayContent);
+                        break;
 
                 }
 
 
 
-
-                displayContent = String.valueOf(Functions.number1);
+                Functions.number2 = Functions.number1;
+                Functions.number1 = 0;
+                displayContent = String.valueOf(Functions.number2);
                 display.setText(displayContent);
 
 
@@ -371,6 +386,8 @@ public class MainWindow extends Application {
         primaryStage.show();
 
     }
+
+
 
 
 }

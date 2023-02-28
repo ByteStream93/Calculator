@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 public class Functions {
 
     public static double number1 = 0;
-    public double number2;
+    public static double number2 = 0;
 
 
 public void calculate(){
