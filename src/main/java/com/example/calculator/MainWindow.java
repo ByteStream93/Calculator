@@ -362,7 +362,7 @@ public class MainWindow extends Application {
                         Functions.number1 /= Double.parseDouble(displayContent);
                         break;
                     case 'x':
-                        Functions.number2 = Double.parseDouble(displayContent);
+                        Functions.number1 = Double.parseDouble(displayContent);
                         break;
 
                 }
