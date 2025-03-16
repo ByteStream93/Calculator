@@ -83,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677511156635</updated>
-      <workItem from="1742123347684" duration="341000" />
+      <workItem from="1742123347684" duration="478000" />
     </task>
     <task id="LOCAL-00001" summary="Graphical Setup completed">
       <created>1677589188934</created>
@@ -107,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742123369973</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Logic of calculation partial implemented">
+      <option name="closed" value="true" />
+      <created>1742123705148</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742123705148</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
