@@ -21,7 +21,8 @@ public void calculate(){
     }
 
     public double getNumber2() {
-        return number2;
+
+    return number2;
     }
 
     public void setNumber2(double number2) {
